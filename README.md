@@ -1,6 +1,7 @@
 # Key Lock Notifier
 
-![Key Lock Notifier Logo](images/app_logo.png)
+![Key Lock Notifier Logo](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWV1bFi6RmdiTiYuIjQjiCa1bMVIWjDm3rzGr6ULzXnx3v8ZyRyVrznK2lEThfGhNGJmzGoIQ6hyphenhyphenkc0zxRxmYkMQaukx76HAaWT6Z9ZsF6pukl_XIP8BYF3DNxkfkSqnAKkr8-xu36Y2LJtcwv3hRCGQd3TwT5FGh5AiEl-NEDrnid2I11OHvTTX47b6U/s16000/app_logo.png)
+
 
 ## Overview
 
