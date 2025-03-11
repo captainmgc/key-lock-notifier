@@ -20,7 +20,8 @@ Key Lock Notifier is a Windows application that displays elegant on-screen notif
 
 | Caps Lock On | Num Lock Off | Settings Window |
 |:------------:|:------------:|:---------------:|
-| ![Caps Lock On](images/caps_on.png) | ![Num Lock Off](images/num_off.png) | ![Settings](images/settings_screenshot.png) |
+| ![Caps Lock On](https://blogger.googleusercontent.com/img/a/AVvXsEiMKLG5UIMvvWqKM8NsbVQU7HsuE8dDUeflPJ1B9xaGCsQfy1ryBC-Jyfcgj5VvtaqCZJQlHXSUOzVpFsn0sA-W8yXs9BhStobdQukTkywpOgMHj5qenlhXBiEOhtDqSkaymh81BqxsGFv_2uujdUB6lkecpl_H4omH3zJL9Y7SibmVMjJSqggfIPbIc1Q=s16000) | ![Num Lock Off](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQCYhvM9pSVBZOhRjNB9VV3zcSx8xwOLcnfmkGmPK2LMmFe8oU-IKeUf4zFUO7VYBWvtUUfP1hGaZJNbL4q_Tx7Z-yhcowqEUNWfSe93awRA3nQ0YfjEqfPeDD5BhP-IzuYP5oQV7TkuuLBKhPDph7snxXX1KtEQRsW2tOdwjCQ6iAx-rhJL3_RD36gE0/s16000/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-03-11%20162324.png) | ![Settings](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimIVZDvTl0-UUAXyo14e0dSmqlHvU3eMeg_PMdHZh3kW4TjMPjei-ufGclYt9BplRBGuNN0vmW0Q0WiATxp1FzsUWjXMD4Zq5MeIMx8obxH7IcRKRW-PDTtRp5wY8z7q1Mu3L7G2gp01pgFa0c-yThtbsrUVEqGPt8CLHIBLpIY191XV_dlkr0lKIVtmg/s16000/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-03-11%20162417.png) |
+
 
 ## Installation
 
