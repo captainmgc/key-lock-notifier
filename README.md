@@ -82,7 +82,7 @@ To build the executable:
 
 2. Build the executable
    ```
-   pyinstaller --onefile --windowed --icon=images/app_icon.ico --add-data "images;images" key-lock-notifier.py
+   pyinstaller --onefile --windowed --icon=images/tray_icon.ico --add-data "images;images" key-lock-notifier.py
    ```
 
 ## Contributing
