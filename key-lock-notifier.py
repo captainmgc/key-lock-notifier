@@ -25,7 +25,7 @@ DEFAULT_CONFIG = {
     "theme": "blue_dark"
 }
 
-# Resource path helper function to work with PyInstaller
+# Mevcut resource_path fonksiyonunu kullanın ve tüm dosya yollarında bunu kullanın
 def resource_path(relative_path):
     """Get absolute path to resource, works for dev and for PyInstaller"""
     try:
@@ -266,7 +266,7 @@ class SettingsWindow:
         self.frame.pack(fill=tk.BOTH, expand=True)
 
         # Add app logo
-        logo_path = os.path.join("C:\\Users\\Captain\\Downloads\\key_lock_notifiier\\images", "app_logo.png")
+        logo_path = resource_path(os.path.join("images", "app_logo.png"))
         if os.path.exists(logo_path):
             try:
                 # Open and resize logo image
@@ -461,7 +461,9 @@ class SystemTrayApp:
             from PIL import Image
 
             # Create a system tray icon with correct path
-            icon_path = os.path.join("C:\\Users\\Captain\\Downloads\\key_lock_notifiier\\images", "tray_icon.png")
+            # Yeni kod
+            icon_path = resource_path(os.path.join("images", "tray_icon.png"))
+
             if not os.path.exists(icon_path):
                 # Create a simple icon if the file doesn't exist
                 img = Image.new('RGB', (64, 64), color="#1E2736")
@@ -485,7 +487,6 @@ class SystemTrayApp:
 
     def show_settings(self):
         # Ensure the settings window appears
-        self.root.deiconify()
         self.key_notifier.show_settings()
 
     def quit_app(self):
@@ -512,15 +513,15 @@ class KeyLockNotifier:
         self.config["theme"] = "blue_dark"
 
         # Görsel dosyalarının yolu - Updated to correct path
-        self.image_folder = "C:\\Users\\Captain\\Downloads\\key_lock_notifiier\\images"
+        self.image_folder = resource_path("images")
 
         # Use absolute paths for all image files
-        self.caps_on_img = os.path.join(self.image_folder, "caps_on.png")
-        self.caps_off_img = os.path.join(self.image_folder, "caps_off.png")
-        self.num_on_img = os.path.join(self.image_folder, "num_on.png")
-        self.num_off_img = os.path.join(self.image_folder, "num_off.png")
-        self.scroll_on_img = os.path.join(self.image_folder, "scroll_on.png")
-        self.scroll_off_img = os.path.join(self.image_folder, "scroll_off.png")
+        self.caps_on_img = resource_path(os.path.join("images", "caps_on.png"))
+        self.caps_off_img = resource_path(os.path.join("images", "caps_off.png"))
+        self.num_on_img = resource_path(os.path.join("images", "num_on.png"))
+        self.num_off_img = resource_path(os.path.join("images", "num_off.png"))
+        self.scroll_on_img = resource_path(os.path.join("images", "scroll_on.png"))
+        self.scroll_off_img = resource_path(os.path.join("images", "scroll_off.png"))
 
         # Ana GUI thread için tkinter root
         self.root = None
@@ -601,8 +602,13 @@ class KeyLockNotifier:
 
     def show_settings(self):
         """Ayarlar penceresini göster"""
+        # Ana pencereyi gösterme, sadece ayarlar penceresini aç
         if self.settings_window is None or not tk.Toplevel.winfo_exists(self.settings_window.window):
             self.settings_window = SettingsWindow(self.root, self.config, self.save_config)
+            self.settings_window.window.lift()
+            self.settings_window.window.focus_force()
+        else:
+            # Eğer pencere zaten açıksa, sadece öne getir
             self.settings_window.window.lift()
             self.settings_window.window.focus_force()
 
@@ -683,10 +689,9 @@ class KeyLockNotifier:
         keyboard.on_press_key("scroll lock", lambda _: None)
 
     def run(self):
-        """Uygulamayı başlat"""
-        print("Key Lock Notifier Settings Opening...")
+        print("Key Lock Notifier Starting...")
 
-        # Main tkinter window - Arka planda çalışacak ama görünmeyecek
+        # Main tkinter window - Arka planda çalışacak ve görünmeyecek
         self.root = tk.Tk()
         self.root.title("Key Lock Notifier Settings")
         self.root.withdraw()  # Ana pencereyi gizle
@@ -704,14 +709,8 @@ class KeyLockNotifier:
         self.root.geometry(f"{window_width}x{window_height}+{x_position}+{y_position}")
         self.root.resizable(False, False)
 
-        # Ana pencere için UI kurulumunu kaldır
-        # main_frame = Frame(self.root, bg="#1E2736", padx=20, pady=20)
-        # main_frame.pack(fill=tk.BOTH, expand=True)
-        # Label(main_frame, text="Tuş Kilidi Bildirici",
-        #      font=("Arial", 16, "bold"), fg="white", bg="#1E2736").pack(pady=(0, 20))
-
-        # Doğrudan ayarlar penceresini göster
-        self.show_settings()
+        # Doğrudan ayarlar penceresini gösterme kısmını kaldırın
+        # self.show_settings()
 
         # Create system tray
         self.system_tray = SystemTrayApp(self.root, self)
@@ -734,9 +733,15 @@ class KeyLockNotifier:
             self.root.mainloop()
         except KeyboardInterrupt:
             self.running = False
-            print("Uygulama kapatılıyor...")
-            sys.exit(0)
+        print("Uygulama kapatılıyor...")
+        sys.exit(0)
+
 
 if __name__ == "__main__":
     app = KeyLockNotifier()
-    app.run()
+    app.run()  # Girinti hatası düzeltildi
+
+
+
+
+
